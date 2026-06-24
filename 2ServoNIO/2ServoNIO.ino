@@ -1,9 +1,29 @@
+/*
+**Disclaimer and Limitation of Liability**
+
+This sketch (software) has been developed specifically for the **M5Stack Atom Lite** and the **M5Stack MiniCan** CAN transceiver module. It has only been tested on the author’s personal model railway layout.
+
+**The sketch is provided “AS IS” and “AS AVAILABLE”**, without any warranties or guarantees of any kind. The author explicitly disclaims all warranties, whether express, implied, or statutory, including but not limited to any warranties of merchantability, fitness for a particular purpose, accuracy, reliability, or non-infringement.
+
+The author accepts **no responsibility or liability** for:
+- Any malfunction, failure, or unexpected behaviour of the sketch
+- Damage to hardware, loss of data, or disruption to your layout
+- Incompatibility caused by updates to third-party libraries, Arduino core, JMRI, or other software
+- Any direct, indirect, incidental, consequential, or punitive damages arising from the use or inability to use this sketch
+
+This code is offered strictly for **educational and hobbyist purposes** to help railway modellers learn how to use the OpenLCB Single Thread Library. It is not intended for commercial use, safety-critical applications, or any situation where failure could cause damage or injury.
+
+By downloading, using, or modifying this sketch, you acknowledge that you assume **all risk** and full responsibility for any outcomes resulting from its use.
+
+The author reserves the right to modify or remove this sketch at any time without notice.
+*/
+
 /* LCC ESP32 2 servo N IO Basic series
 
   Report bugs if anything is found
 
 
-This is my test version for demonstration CAN Bus use only by John Holmes
+ This is my test version for demonstration CAN Bus use only by John Holmes
   - Pins 15 RX and 2 TX for the transceiver module
   - Pins 14,27,26,25,16,17,18,19  are used for input or output
   - Pins 32,33 servos

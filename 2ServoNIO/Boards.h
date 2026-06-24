@@ -1,7 +1,8 @@
+/*
+ Board definitions if you alter the number servo or IO pins change below#
+ Max servo 8 max IO 16 but only test with 8 so change at own risk
 
-// Board definitions
-
-
+*/
 
 #if defined(ESP32_BOARD)
   #define BOARD "ESP32"
@@ -34,8 +35,6 @@
   #define EEPROMSIZE 4096
   #define EEPROMbegin { EEPROM.begin(EEPROMSIZE); dP("\nEEPROM begin "); dP(EEPROMSIZE)
   #define EEPROMcommit { EEPROM.commit(); dP("EEPROM COMMIT"); }
-
-
 
 #else
   #error "No board selected"

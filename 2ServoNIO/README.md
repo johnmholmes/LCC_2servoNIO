@@ -20,7 +20,7 @@ It demonstrates:
 
 This sketch is configured to use the ACAN_ESP32Can.h library that has been changed by David Harris.
 
-This sketch is tested on the DOIT ESP32 DEVKIT V1 and the sn65hvd230 transceiver module.  
+This sketch is tested on the ESP32 DEVKIT V1 and the sn65hvd230 transceiver module.  
 
 
 
