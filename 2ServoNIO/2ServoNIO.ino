@@ -19,7 +19,7 @@ This is my test version for demonstration CAN Bus use only by John Holmes
 //==============================================================
 
 #include "Config.h"   // Contains configuration, see "Config.h"
-#include "Boards.h"   // Contains Board defintions, see "BBoards.h"
+#include "Boards.h"   // Contains Board defintions, see "Boards.h"
 #include "mdebugging.h"           // debugging
 #include "OpenLCBHeader.h"        // System house-keeping.
 
