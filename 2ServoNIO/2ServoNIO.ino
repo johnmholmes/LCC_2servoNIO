@@ -52,26 +52,28 @@ extern "C" {
 const char configDefInfo[] PROGMEM =
     CDIheader R"(
     <name>Application Configuration</name>
+    <hints><visibility hideable='yes' hidden='yes' ></visibility></hints>
     <group>
-        <name>Turnout Servo Configuration</name>
+        <name>Turnout Servo Speed and Save Period Configuration</name>
+         <description>Ensure Servos are powered from a separate 5 volt power supply. Not from the shield</description>
         <int size='1'>
           <name>Speed 5-50 (delay between steps)</name>
           <min>5</min><max>50</max>
           <hints><slider tickSpacing='15' immediate='yes' showValue='yes'> </slider></hints>
         </int>
-        <int size='1'><name>Save servo positions every x*x= seconds</name></int>
+        <int size='1'><name>Save servo positions every x*x*100= seconds. If sevro has moved to a different position to the last save. So 190 * 190 * 100 = 3,610,000 / 60 = 60 minutes between saves.</name></int>
     </group>
     <group replication=')" N(NUM_SERVOS) R"('>
         <name>Servos</name>
         <repname>Servo Pin 32</repname>
         <repname>Servo Pin 33</repname>
-        <string size='8'><name>Description</name></string>
+        <string size='24'><name>Servo Location On Layout.</name></string>
         <group replication=')" N(NUM_POS) R"('>
         <name>  Closed     Midpoint    Thrown</name>
             <repname>Position</repname>
             <eventid><name>EventID</name></eventid>
             <int size='1'>
-                <name>Servo Position in Degrees</name>
+                <name>Servo Position in approximate degrees range 0 to 180. Take care when using the slider small changes are best done using the text box</name>
                 <min>0</min><max>180</max>
                 <hints><slider tickSpacing='45' immediate='yes' showValue='yes'> </slider></hints>
             </int>
@@ -79,6 +81,7 @@ const char configDefInfo[] PROGMEM =
     </group>
     <group replication=')" N(NUM_IO) R"('>
         <name>Input/Output</name> 
+        <description>Each pin can be configured as either an Output, Input. Note the Pins are as they appear on the shield.</description>
         <repname>Pin 14</repname>
         <repname>Pin 27</repname>
         <repname>Pin 26</repname>
@@ -88,9 +91,9 @@ const char configDefInfo[] PROGMEM =
         <repname>Pin 18</repname>
         <repname>Pin 19</repname>
 
-        <string size='8'><name>Description</name></string>
+        <string size='24'><name>Description of pin usage.</name></string>
         <int size='1'>
-            <name>Channel type</name>
+            <name>Channel type offers the end user 11 possible uses for the choosen pin. Ensure if output current limiting resistors are used.</name>
             <map>
                 <relation><property>0</property><value>None</value></relation> 
                 <relation><property>1</property><value>Input</value></relation> 
@@ -106,15 +109,15 @@ const char configDefInfo[] PROGMEM =
             </map>
         </int>
         <int size='1'>
-            <name>On-Duration/On-delay 1-255 = 100ms-25.5s, 0=steady-state</name>
+            <name>Output On-Duration or Input On-delay, 0 = steady-state 1-255 = From 100ms to 25.5 seconds, </name>
             <hints><slider tickSpacing='85' immediate='yes' showValue='yes'> </slider></hints>
         </int>
         <int size='1'>
-            <name>Off-Period/Off-delay 1-255 = 100ms-25.5s, 0=No repeat</name>
+            <name>Output Off-Period or input Off-delay, 0=No repeat 1-255 = From 100ms to 25.5 seconds, </name>
             <hints><slider tickSpacing='85' immediate='yes' showValue='yes'> </slider></hints>
         </int>
-        <eventid><name>Pin HIGH State Event</name></eventid>
-        <eventid><name>Pin LOW State Event</name></eventid>
+        <eventid><name>Pin HIGH State 3.3 volt Event</name></eventid>
+        <eventid><name>Pin LOW State 0 volt Event</name></eventid>
     </group>
     )" CDIfooter;
 } 
@@ -126,14 +129,14 @@ typedef struct {
       uint8_t servodelay; 
       uint8_t saveperiod; 
       struct {
-        char desc[8];        
+        char desc[24];        
         struct {
           EventID eid;       
           uint8_t angle;     
         } pos[NUM_POS];
       } servos[NUM_SERVOS];
       struct {
-        char desc[8];
+        char desc[24];
         uint8_t type;
         uint8_t duration;    
         uint8_t period;      
