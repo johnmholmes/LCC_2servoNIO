@@ -42,7 +42,7 @@ The author reserves the right to modify or remove this sketch at any time withou
 #include "Boards.h"   // Contains Board defintions, see "Boards.h"
 #include "mdebugging.h"           // debugging
 #include "OpenLCBHeader.h"        // System house-keeping.
-
+#include <ESP32Servo.h>
 
 #define OLCB_NO_BLUE_GOLD // Do not delete
 

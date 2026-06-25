@@ -13,7 +13,7 @@
   #ifndef USEGCSERIAL
     #include "ACAN_ESP32Can.h"
   #endif // USEGCSERIAL
-  #include <ESP32Servo.h>
+  
   #define EEPROMSIZE 4096
   #define EEPROMbegin { EEPROM.begin(EEPROMSIZE); dP("\nEEPROM begin "); dP(EEPROMSIZE)
   #define EEPROMcommit { EEPROM.commit(); dP("EEPROM COMMIT"); }
