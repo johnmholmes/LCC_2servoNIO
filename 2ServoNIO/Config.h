@@ -11,7 +11,7 @@
 /*
   ============================================================================================
   End of LCC Operator level users configurations Altering anything below will break the sketch
-  Only change if you are a LCC imagineer / Developer
+  Only change if you are a OpenLCB imagineer / Developer
   ============================================================================================//
 */
 
@@ -39,14 +39,22 @@
 //#include "GCSerial.h"
 //#define NOCAN
 
+
+/*
+  Any changes to the number of servos or IO require changes made to the Boards.h 
+  for pin allocations. For experienced LCC imagineers as certain changes may effect the 
+  memstructure.
+*/
+#define NUM_SERVOS 2
 #define NUM_POS 3  
+#define NUM_IO  8
 #define NUM_EVENT (NUM_SERVOS * NUM_POS) + (NUM_IO*2)
 
 // Board definitions
-#define MANU "OpenLCB"           // The manufacturer of node
-#define MODEL BOARD "2Servo8IO"  // The model of the board
-#define HWVERSION "0.1"          // Hardware version
-#define SWVERSION "0.1"          // Software version
+#define MANU "OpenLCB"              // The manufacturer of node
+#define MODEL BOARD " 2Servo8IO"    // The default model of the board - Software type Leave a space after the quote
+#define HWVERSION "ESP 1 Basic"     // Hardware version
+#define SWVERSION "1.0.1"           // Software version
 
 #ifdef USEGCSERIAL
   #include "GCSerial.h"

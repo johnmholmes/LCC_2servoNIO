@@ -150,8 +150,9 @@ extern "C" {
         SERVOEID(NUM_SERVOS),
         IOEID(NUM_IO)
     };
-    extern const char SNII_const_data[] PROGMEM = "\001" MANU "\000" MODEL "\000" HWVERSION "\000" OlcbCommonVersion ; 
-} 
+    extern const char SNII_const_data[] PROGMEM = 
+    "\001" MANU "\000" MODEL " " "\000" HWVERSION "\000" SWVERSION " " OlcbCommonVersion;
+}  
 
 uint8_t protocolIdentValue[6] = {   
         pSimple | pDatagram | pMemConfig | pPCEvents | !pIdent    | pTeach     | !pStream   | !pReservation, 
