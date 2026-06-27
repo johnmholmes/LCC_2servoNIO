@@ -36,7 +36,7 @@ By downloading, using, or modifying this sketch, you acknowledge that you assume
 
 ### Core Hardware
 * **Microcontroller:** ESP32 Dvekit 1 
-* **CAN Transceiver:** SN65VHD230
+* **CAN Transceiver:** SN65HVD230
 
 > 🛑 **CRITICAL NOTE:** Always power your turnouts/servos from an independent, external 5V power supply. **Do not** draw servo power directly from the ESP32 shield to avoid brownouts or hardware damage.
 
