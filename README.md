@@ -1,6 +1,6 @@
 # LCC ESP32 2 Servo & 8 I/O Basic Controller
 
-An OpenLCB / LCC (Layout Command Control) firmware implementation optimized for model railway automation. Developed for the **ESP32 DevKit 1** combined with the **SN65VHD230** transceiver module, this project uses the OpenLCB Single Thread Library to control two turnout servos and 8 multi-configurable Input/Output pins.
+An OpenLCB / LCC (Layout Command Control) firmware implementation optimized for model railway automation. Developed for the **ESP32 DevKit 1** combined with the **SN65HVD230** transceiver module, this project uses the OpenLCB Single Thread Library to control two turnout servos and 8 multi-configurable Input/Output pins.
 
 ---
 
